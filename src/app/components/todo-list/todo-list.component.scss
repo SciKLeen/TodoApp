@@ -1,0 +1,49 @@
+.form-container {
+    padding: 20px;
+    .label {
+      font-size: 18px;
+      font-weight: 500;
+    }
+    .input-task {
+      margin-right: 10px;
+    }
+  }
+  .todo-list-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    .container-item {
+      position: relative;
+      .todo-link {
+        display: inline-block;
+        margin: 10px;
+        vertical-align: top;
+        width: 350px;
+        .todo-card {
+          text-align: center;
+          .card-icon {
+            color: Green
+          }
+        }
+      }
+      .delete-button {
+        position: relative;
+        left: -30px;
+        top: -7px;
+        border-radius: 18px;
+        border: none;
+        width: 36px;
+        height: 36px;
+      }
+    }
+  }
+  
+  mat-card-header {
+    display: inline;
+  }
+  
+  a,a label {
+    cursor: pointer;
+    text-decoration: none
+  }
+  

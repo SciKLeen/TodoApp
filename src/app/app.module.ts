@@ -2,8 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { AppComponent } from './app.component';
 
 import {
   MatCardModule,
@@ -18,9 +19,9 @@ import {
   MatMenuModule,
   MatToolbarModule
 } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {InputTextModule} from 'primeng/inputtext';
-
 import { LoginComponent } from './components/login/login.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 
@@ -48,6 +49,7 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
     FormsModule,
     ReactiveFormsModule,
     InputTextModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
