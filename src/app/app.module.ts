@@ -24,12 +24,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {InputTextModule} from 'primeng/inputtext';
 import { LoginComponent } from './components/login/login.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
+import { ListDetailComponent } from './components/list-detail/list-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     TodoListComponent,
+    ListDetailComponent,
   ],
   imports: [
     BrowserModule,
