@@ -4,11 +4,11 @@ export interface IList {
   items: number;
 }
 
-// export interface ITask {
-//   id: number;
-//   listId: number;
-//   name: string;
-//   completed: boolean;
-//   createdAt: string;
-//   completedAt: string;
-// }
+export interface ITask {
+  id: number;
+  listId: number;
+  name: string;
+  completed: boolean;
+  createdAt: string;
+  completedAt: string;
+}

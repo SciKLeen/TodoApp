@@ -1,0 +1,24 @@
+:host {
+  .list-detail {
+    padding: 20px;
+
+    .label {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .complete {
+      text-decoration: line-through;
+    }
+
+    .input-task {
+      margin-right: 10px;
+    }
+
+    .task-item {
+      margin-top: 10px;
+      justify-content: space-between;
+      display: flex;
+    }
+  }
+}

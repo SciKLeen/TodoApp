@@ -1,1 +1,41 @@
-<p>list-detail works!</p>
+<div class="list-detail">
+  <p class="label">
+    Edit List
+  </p>
+
+  <mat-form-field class="input-task">
+    <input matInput placeholder="Input List Name" [(ngModel)]="listName">
+  </mat-form-field>
+
+  <button mat-raised-button mat-primary (click)="editListName()" [disabled]="listName === periousListName">
+    <mat-icon>save</mat-icon>
+    Save
+  </button>
+
+  <p class="label">
+    Tasks
+  </p>
+
+  <mat-form-field class="input-task">
+    <input matInput placeholder="Input New Task" [(ngModel)]="newTask">
+  </mat-form-field>
+
+  <button mat-raised-button (click)="addNewTask()" [disabled]="!newTask">
+    <mat-icon>add</mat-icon>
+    Add
+  </button>
+
+  <mat-list-item *ngFor="let task of tasks" [class.complete]="task?.completed">
+    <mat-card class="task-item">
+      <mat-checkbox [checked]="task.completed" (change)="onCheckbox(task.id)">{{ task?.name }}</mat-checkbox>
+      <div>
+        <button class="delete-button" (click)="editTask(task)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button class="delete-button" (click)="deleteTask(task.id)">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    </mat-card>
+  </mat-list-item>
+</div>
