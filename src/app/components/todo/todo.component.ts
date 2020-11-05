@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-todo',
@@ -13,10 +14,10 @@ export class TodoComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
+    private snackBar: MatSnackBar,
   ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   logOut() {
     this.authService.logout().subscribe(res => {
@@ -25,7 +26,7 @@ export class TodoComponent implements OnInit {
         this.router.navigate(['/login']);
       }
     }, error => {
-      console.log('Logout error', error);
+      this.snackBar.open('Logout error', null, { duration: 2000 });
     });
   }
 

@@ -17,7 +17,8 @@ import {
   MatCheckboxModule,
   MatListModule,
   MatMenuModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatSnackBarModule
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -52,12 +53,16 @@ import { EditTaskComponent } from './components/edit-task/edit-task.component';
     MatListModule,
     MatMenuModule,
     MatToolbarModule,
+    MatSnackBarModule,
     FormsModule,
     ReactiveFormsModule,
     InputTextModule,
     HttpClientModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+
+  ],
+  bootstrap: [AppComponent],
+  entryComponents: [EditTaskComponent]
 })
 export class AppModule { }

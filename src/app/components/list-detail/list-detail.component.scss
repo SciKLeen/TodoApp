@@ -1,7 +1,9 @@
-:host {
-  .list-detail {
+#list-detail ::ng-deep {
+  padding: 20px;
+  display: flex;
+  .todo-input {
     padding: 20px;
-
+    width: 30%;
     .label {
       font-size: 18px;
       font-weight: 500;
@@ -15,6 +17,17 @@
       margin-right: 10px;
     }
 
+    button {
+      border-radius: 27px;
+      background: #333333;
+      color: white;
+    }
+  }
+
+  .task-list {
+    padding: 20px;
+    width: 70%;
+    border-left: groove;
     .task-item {
       margin-top: 10px;
       justify-content: space-between;

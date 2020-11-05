@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { MatSnackBar } from '@angular/material';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar,
   ) {
     if (this.authService.loggedIn()) {
       this.router.navigate(['/todo-list']);
@@ -40,8 +42,6 @@ export class LoginComponent implements OnInit {
       this.authService.login(this.form.value).subscribe(res => {
         localStorage.setItem('apiKey', res.apiKey);
         this.router.navigate(['/todo-list']);
-      }, err => {
-        this.error = 'The username or password is incorrect';
       });
     }
   }

@@ -9,6 +9,22 @@
   .input-task {
     margin-right: 10px;
   }
+
+  .input-content {
+    align-items: center;
+    display: flex;
+    .add-button {
+      cursor: pointer;
+      align-items: center;
+      display: flex;
+      border: 1px solid lightseagreen;
+      color: #fff;
+      background-color: #333333;
+      border-radius: 27px;
+      min-width: 70px;
+      height: 30px;
+    }
+  }
 }
 
 .todo-list-container {

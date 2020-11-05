@@ -1,29 +1,20 @@
 #header ::ng-deep {
-  display: flex;
   box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
 
-  .title-content {
-    width: 95%;
-    display: flex;
-    .title-a-tag {
-      text-decoration: none;
-  
-      .app-name {
-        font-size: 30px;
-        color: #555555;
-        line-height: 1.2;
-      }
+  .title-a-tag {
+    text-decoration: none;
+
+    .app-name {
+      font-size: 30px;
+      color: #555555;
+      line-height: 1.2;
     }
   }
 
-  .logout-content {
-    width: 5%;
-    display: flex;
-    justify-content: center;
-
-    .mat-icon {
-      cursor: pointer;
-      color: #555555;
-    }
+  .mat-icon {
+    cursor: pointer;
+    color: #555555;
   }
 }

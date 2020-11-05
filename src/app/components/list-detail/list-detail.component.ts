@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { TaskService } from 'src/app/services/task.service';
 import { ITask } from 'src/app/modals/todo';
 import { TodoListService } from 'src/app/services/todo-list.service';
-import { MatDialog, MatDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogConfig, MatSnackBar } from '@angular/material';
 import { EditTaskComponent } from '../edit-task/edit-task.component';
 
 @Component({
@@ -23,7 +23,8 @@ export class ListDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private taskService: TaskService,
     private todoListService: TodoListService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar,
   ) { }
 
   ngOnInit() {
@@ -39,7 +40,7 @@ export class ListDetailComponent implements OnInit {
     this.taskService.getTasks(this.listId).subscribe(res => {
       this.tasks = res;
     }, error => {
-      console.log('getTasks Error', error);
+      this.snackBar.open('Get Tasks error', null, { duration: 2000 });
     });
   }
 
@@ -47,7 +48,7 @@ export class ListDetailComponent implements OnInit {
     this.todoListService.updateList(this.listId, this.listName).subscribe(res => {
       this.periousListName = this.listName;
     }, error => {
-      console.log('getTasks Error', error);
+      this.snackBar.open('Update list task error', null, { duration: 2000 });
     });
   }
 
@@ -56,7 +57,7 @@ export class ListDetailComponent implements OnInit {
       this.tasks.unshift(res);
       this.newTask = '';
     }, error => {
-      console.log('createTask Error', error);
+      this.snackBar.open('Create task error', null, { duration: 2000 });
     });
   }
 
@@ -67,7 +68,7 @@ export class ListDetailComponent implements OnInit {
         this.taskService.updateTask(this.listId, taskId, item).subscribe(res => {
           console.log('RESS', res);
         }, error => {
-          console.log('deleteList Error', error);
+          this.snackBar.open('Update task error', null, { duration: 2000 });
         });
       }
     });
@@ -78,7 +79,7 @@ export class ListDetailComponent implements OnInit {
       const index = this.tasks.findIndex(obj => obj.id === id);
       this.tasks.splice(index, 1);
     }, error => {
-      console.log('deleteList Error', error);
+      this.snackBar.open('Delete task error', null, { duration: 2000 });
     });
   }
 
@@ -97,7 +98,7 @@ export class ListDetailComponent implements OnInit {
       this.taskService.updateTask(data.list_id, data.id, data).subscribe(res => {
         console.log('RESS', res);
       }, error => {
-        console.log('deleteList Error', error);
+        this.snackBar.open('Update task error', null, { duration: 2000 });
       });
     });
   }

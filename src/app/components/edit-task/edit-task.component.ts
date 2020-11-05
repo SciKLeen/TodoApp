@@ -28,5 +28,4 @@ export class EditTaskComponent implements OnInit {
     this.task.name = this.taskName;
     this.dialogRef.close();
   }
-
 }
