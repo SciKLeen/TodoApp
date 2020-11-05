@@ -27,16 +27,15 @@ export class AuthService {
         ));
   }
 
-  // logout(): Observable<boolean> {
-  //   return this.restService.post(environment.apiUrl + '/auth/logout', null)
-  //     .pipe(
-  //       map(d => {
-  //         localStorage.removeItem('apiKey');
-  //         return true;
-  //       },
-  //         throwError('Could not be authenticated')
-  //       ));
-  // }
+  logout(): Observable<boolean> {
+    return this.restService.post(environment.apiUrl + '/auth/logout', null)
+      .pipe(
+        map(d => {
+          return true;
+        },
+          throwError('Could not be authenticated')
+        ));
+  }
 
   loggedIn(): boolean {
     return (localStorage.getItem('apiKey') !== null);

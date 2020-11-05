@@ -26,23 +26,23 @@ export class RestService {
     return this.http.post(url, params, this.httpOptions);
   }
 
-  // put(url: string, params: any, options?: any) {
-  //   if (options) {
-  //     this.httpOptions.headers = options;
-  //   } else {
-  //     this.makeHeaderRequest();
-  //   }
-  //   return this.http.put(url, params, this.httpOptions);
-  // }
+  put(url: string, params: any, options?: any) {
+    if (options) {
+      this.httpOptions.headers = options;
+    } else {
+      this.makeHeaderRequest();
+    }
+    return this.http.put(url, params, this.httpOptions);
+  }
 
-  // delete(url: string, options?: any) {
-  //   if (options) {
-  //     this.httpOptions.headers = options;
-  //   } else {
-  //     this.makeHeaderRequest();
-  //   }
-  //   return this.http.delete(url, this.httpOptions);
-  // }
+  delete(url: string, options?: any) {
+    if (options) {
+      this.httpOptions.headers = options;
+    } else {
+      this.makeHeaderRequest();
+    }
+    return this.http.delete(url, this.httpOptions);
+  }
 
   makeHeaderRequest() {
     const apiKey = localStorage.getItem('apiKey');
