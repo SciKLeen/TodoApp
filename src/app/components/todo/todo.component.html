@@ -1,11 +1,16 @@
 <mat-toolbar id="header">
-  <a class="title-a-tag" [routerLink]="['/todo-list']">
-    <span class="app-name">{{appName}}</span>
-  </a>
-  <button mat-menu-item (click)="logout()">
-    <mat-icon>exit_to_app</mat-icon>
-    <span>Logout</span>
-  </button>
+
+  <div class="title-content">
+    <a class="title-a-tag" [routerLink]="['/todo-list']">
+      <span class="app-name">{{appName}}</span>
+    </a>
+  </div>
+
+  <div class="logout-content">
+    <mat-icon (click)="logOut()" aria-hidden=" false" aria-label="Example home icon" mat-raised-button
+      matTooltip="log out">logout
+    </mat-icon>
+  </div>
 </mat-toolbar>
 
 <router-outlet> </router-outlet>

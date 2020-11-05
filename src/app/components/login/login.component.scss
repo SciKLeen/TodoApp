@@ -35,5 +35,11 @@ mat-card {
   mat-card-title,
   mat-card-content {
     display: flex;
+    font-size: 30px;
+    color: #555555;
+    line-height: 1.2;
+    text-align: left;
+    width: 100%;
+    display: block;
   }
 }

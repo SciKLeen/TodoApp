@@ -2,19 +2,28 @@
   display: flex;
   box-sizing: border-box;
 
-  .title-a-tag {
-    text-decoration: none;
-
-    .app-name {
-      font-family: Raleway-Medium;
-      font-size: 30px;
-      color: #555555;
-      line-height: 1.2;
-      text-transform: uppercase;
+  .title-content {
+    width: 95%;
+    display: flex;
+    .title-a-tag {
+      text-decoration: none;
+  
+      .app-name {
+        font-size: 30px;
+        color: #555555;
+        line-height: 1.2;
+      }
     }
   }
 
-  .mat-menu-item {
-    float: left;
+  .logout-content {
+    width: 5%;
+    display: flex;
+    justify-content: center;
+
+    .mat-icon {
+      cursor: pointer;
+      color: #555555;
+    }
   }
 }
