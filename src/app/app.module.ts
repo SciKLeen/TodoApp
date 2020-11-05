@@ -25,6 +25,8 @@ import {InputTextModule} from 'primeng/inputtext';
 import { LoginComponent } from './components/login/login.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { ListDetailComponent } from './components/list-detail/list-detail.component';
+import { TodoComponent } from './components/todo/todo.component';
+import { EditTaskComponent } from './components/edit-task/edit-task.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { ListDetailComponent } from './components/list-detail/list-detail.compon
     LoginComponent,
     TodoListComponent,
     ListDetailComponent,
+    TodoComponent,
+    EditTaskComponent,
   ],
   imports: [
     BrowserModule,
