@@ -18,7 +18,7 @@ export class TodoComponent implements OnInit {
   ngOnInit() {
   }
 
-  logout() {
+  logOut() {
     this.authService.logout().subscribe(res => {
       if (res) {
         localStorage.removeItem('apiKey');
