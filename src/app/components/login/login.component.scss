@@ -3,11 +3,6 @@
   justify-content: center;
   margin: 100px 0px;
 
-  .error {
-    width: 300px;
-    color: red;
-  }
-
   .container-button {
     display: flex;
 
@@ -26,6 +21,14 @@
     width: 100%;
     min-width: 350px;
   }
+
+  .error {
+    width: 300px;
+    color: red;
+    font: initial;
+    font-style: italic;
+    padding-bottom: 5px;
+  }
 }
 
 mat-card {
@@ -35,11 +38,12 @@ mat-card {
   mat-card-title,
   mat-card-content {
     display: flex;
-    font-size: 30px;
+    font-size: 35px;
     color: #555555;
     line-height: 1.2;
     text-align: left;
     width: 100%;
     display: block;
+    margin-bottom: 20px;
   }
 }

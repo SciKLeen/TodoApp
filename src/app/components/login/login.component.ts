@@ -42,6 +42,8 @@ export class LoginComponent implements OnInit {
       this.authService.login(this.form.value).subscribe(res => {
         localStorage.setItem('apiKey', res.apiKey);
         this.router.navigate(['/todo-list']);
+      }, err => {
+        this.error = 'The username or password is incorrect';
       });
     }
   }
