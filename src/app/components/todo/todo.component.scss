@@ -1,0 +1,20 @@
+#header ::ng-deep {
+  display: flex;
+  box-sizing: border-box;
+
+  .title-a-tag {
+    text-decoration: none;
+
+    .app-name {
+      font-family: Raleway-Medium;
+      font-size: 30px;
+      color: #555555;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+  }
+
+  .mat-menu-item {
+    float: left;
+  }
+}

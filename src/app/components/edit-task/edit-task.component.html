@@ -1,0 +1,12 @@
+<mat-dialog-content>
+
+  <mat-form-field>
+    <input matInput placeholder="Input New Name" [(ngModel)]="task.name">
+  </mat-form-field>
+
+</mat-dialog-content>
+
+<mat-dialog-actions class="button-contaner">
+  <button class="mat-raised-button" (click)="close()">Close</button>
+  <button class="mat-raised-button mat-primary save" (click)="save()" [disabled]="task.name === taskName">Save</button>
+</mat-dialog-actions>
