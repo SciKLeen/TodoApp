@@ -15,7 +15,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'todo-list', pathMatch: 'full' },
       { path: 'todo-list', component: TodoListComponent, canActivate: [AuthGuard] },
-      { path: 'todo-list/:id', component: ListDetailComponent, canActivate: [AuthGuard] },
+      { path: 'todo-list/:id/:name', component: ListDetailComponent, canActivate: [AuthGuard] },
     ]
   },
   { path: '**', component: LoginComponent },

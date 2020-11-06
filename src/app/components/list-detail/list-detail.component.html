@@ -4,7 +4,6 @@
       <p class="label">
         Edit List
       </p>
-    
       <mat-form-field class="input-task">
         <input matInput placeholder="Input List Name" [(ngModel)]="listName">
       </mat-form-field>
@@ -35,7 +34,7 @@
       <mat-card class="task-item">
         <mat-checkbox [checked]="task.completed" (change)="onCheckbox(task.id)">{{ task?.name }}</mat-checkbox>
         <div>
-          <button class="delete-button" (click)="editTask(task)">
+          <button class="edit-button" (click)="editTask(task)">
             <mat-icon>edit</mat-icon>
           </button>
           <button class="delete-button" (click)="deleteTask(task.id)">

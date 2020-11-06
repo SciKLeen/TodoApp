@@ -17,7 +17,6 @@
       cursor: pointer;
       align-items: center;
       display: flex;
-      border: 1px solid lightseagreen;
       color: #fff;
       background-color: #333333;
       border-radius: 27px;
@@ -44,7 +43,7 @@
 
       .todo-card {
         text-align: center;
-        height: 150px;
+        height: 120px;
 
         .mat-card-title {
           word-wrap: break-word;

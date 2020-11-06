@@ -19,6 +19,10 @@
 
     button {
       border-radius: 27px;
+    }
+
+    
+    .mat-fab {
       background: #333333;
       color: white;
     }
@@ -28,10 +32,19 @@
     padding: 20px;
     width: 70%;
     border-left: groove;
+    height: 400px;
     .task-item {
       margin-top: 10px;
       justify-content: space-between;
       display: flex;
+      .delete-button {
+        margin-left: 5px;
+      }
+
+      .mat-checkbox-checked {
+        text-decoration-line: line-through;
+        font-style: italic;
+      }
     }
   }
 }

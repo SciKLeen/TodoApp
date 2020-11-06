@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { MatSnackBar } from '@angular/material';
-
 
 @Component({
   selector: 'app-login',
@@ -14,7 +13,7 @@ export class LoginComponent implements OnInit {
   loginTitle = 'Login';
   form: FormGroup;
 
-  error = '';
+  loginErrorLabel = '';
 
   constructor(
     private authService: AuthService,
@@ -43,7 +42,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('apiKey', res.apiKey);
         this.router.navigate(['/todo-list']);
       }, err => {
-        this.error = 'The username or password is incorrect';
+        this.loginErrorLabel = 'The username or password is incorrect';
       });
     }
   }

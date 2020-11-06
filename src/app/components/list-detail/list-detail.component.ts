@@ -94,12 +94,14 @@ export class ListDetailComponent implements OnInit {
     const dialogRef = this.dialog.open(EditTaskComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(data => {
-      console.log('Dialog output:', data);
-      this.taskService.updateTask(data.list_id, data.id, data).subscribe(res => {
-        console.log('RESS', res);
-      }, error => {
-        this.snackBar.open('Update task error', null, { duration: 2000 });
-      });
+      if (data) {
+        console.log('Dialog output:', data);
+        this.taskService.updateTask(data.list_id, data.id, data).subscribe(res => {
+          console.log('RESS', res);
+        }, () => {
+          this.snackBar.open('Update task error', null, { duration: 2000 });
+        });
+      }
     });
   }
 }
