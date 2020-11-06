@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { EditTaskComponent } from '../edit-task/edit-task.component';
 import { TaskService } from 'src/app/services/task.service';
+
+import { ActivatedRoute } from '@angular/router';
 import { ITask } from 'src/app/modals/todo';
 import { TodoListService } from 'src/app/services/todo-list.service';
 import { MatDialog, MatDialogConfig, MatSnackBar } from '@angular/material';
-import { EditTaskComponent } from '../edit-task/edit-task.component';
+
+
 
 @Component({
   selector: 'app-list-detail',
@@ -39,7 +42,7 @@ export class ListDetailComponent implements OnInit {
   getTasks() {
     this.taskService.getTasks(this.listId).subscribe(res => {
       this.tasks = res;
-    }, error => {
+    }, () => {
       this.snackBar.open('Get Tasks error', null, { duration: 2000 });
     });
   }
@@ -47,7 +50,7 @@ export class ListDetailComponent implements OnInit {
   editListName() {
     this.todoListService.updateList(this.listId, this.listName).subscribe(res => {
       this.periousListName = this.listName;
-    }, error => {
+    }, () => {
       this.snackBar.open('Update list task error', null, { duration: 2000 });
     });
   }
@@ -56,18 +59,18 @@ export class ListDetailComponent implements OnInit {
     this.taskService.createTask(this.listId, this.newTask).subscribe(res => {
       this.tasks.unshift(res);
       this.newTask = '';
-    }, error => {
+    }, () => {
       this.snackBar.open('Create task error', null, { duration: 2000 });
     });
   }
 
   onCheckbox(taskId: number) {
-    this.tasks.map( item => {
+    this.tasks.map(item => {
       if (item.id === taskId) {
         item.completed = !item.completed;
         this.taskService.updateTask(this.listId, taskId, item).subscribe(res => {
           console.log('RESS', res);
-        }, error => {
+        }, () => {
           this.snackBar.open('Update task error', null, { duration: 2000 });
         });
       }
@@ -75,10 +78,10 @@ export class ListDetailComponent implements OnInit {
   }
 
   deleteTask(id: number) {
-    this.taskService.deleteTask(this.listId, id).subscribe(res => {
+    this.taskService.deleteTask(this.listId, id).subscribe( () => {
       const index = this.tasks.findIndex(obj => obj.id === id);
       this.tasks.splice(index, 1);
-    }, error => {
+    }, () => {
       this.snackBar.open('Delete task error', null, { duration: 2000 });
     });
   }

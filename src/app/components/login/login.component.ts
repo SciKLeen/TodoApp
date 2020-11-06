@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -12,13 +11,11 @@ import { MatSnackBar } from '@angular/material';
 export class LoginComponent implements OnInit {
   loginTitle = 'Login';
   form: FormGroup;
-
   loginErrorLabel = '';
 
   constructor(
     private authService: AuthService,
     private router: Router,
-    private snackBar: MatSnackBar,
   ) {
     if (this.authService.loggedIn()) {
       this.router.navigate(['/todo-list']);
@@ -41,7 +38,7 @@ export class LoginComponent implements OnInit {
       this.authService.login(this.form.value).subscribe(res => {
         localStorage.setItem('apiKey', res.apiKey);
         this.router.navigate(['/todo-list']);
-      }, err => {
+      }, () => {
         this.loginErrorLabel = 'The username or password is incorrect';
       });
     }

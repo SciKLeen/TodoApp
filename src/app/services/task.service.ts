@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
-
-import { ITask } from '../modals/todo';
 import { environment } from 'src/environments/environment';
+
 import { RestService } from './rest.service';
+import { ITask } from '../modals/todo';
 
 @Injectable({
   providedIn: 'root'

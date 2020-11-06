@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { RestService } from './rest.service';
+import { environment } from '../../environments/environment';
 
 import { IList } from '../modals/todo';
-import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -44,7 +44,7 @@ export class TodoListService {
     const params = {
       name
     };
-    return this.restService.put(environment.apiUrl + '/lists/' + + listId, params)
+    return this.restService.put(environment.apiUrl + '/lists/' + listId, params)
       .pipe(
         map(d => {
           if (d) {

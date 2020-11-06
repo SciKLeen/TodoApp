@@ -18,7 +18,6 @@ const routes: Routes = [
       { path: 'todo-list/:id/:name', component: ListDetailComponent, canActivate: [AuthGuard] },
     ]
   },
-  { path: '**', component: LoginComponent },
   { path: '**', component: LoginComponent }
 ];
 

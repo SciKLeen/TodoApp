@@ -10,6 +10,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 export class EditTaskComponent implements OnInit {
   task: ITask;
   taskName = '';
+
   constructor(
     private dialogRef: MatDialogRef<EditTaskComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {
