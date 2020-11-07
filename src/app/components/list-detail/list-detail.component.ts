@@ -7,8 +7,6 @@ import { ITask } from 'src/app/modals/todo';
 import { TodoListService } from 'src/app/services/todo-list.service';
 import { MatDialog, MatDialogConfig, MatSnackBar } from '@angular/material';
 
-
-
 @Component({
   selector: 'app-list-detail',
   templateUrl: './list-detail.component.html',
@@ -33,9 +31,18 @@ export class ListDetailComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.listId = +params.get('id');
-      this.listName = params.get('name');
-      this.periousListName = this.listName;
+
+      this.getTodoDetail();
       this.getTasks();
+    });
+  }
+
+  getTodoDetail() {
+    this.taskService.getListDetail(this.listId).subscribe(res => {
+      this.listName = res.name;
+      this.periousListName = this.listName;
+    }, () => {
+      this.snackBar.open('Get tasks name error', null, { duration: 2000, verticalPosition: 'top' });
     });
   }
 
@@ -43,7 +50,7 @@ export class ListDetailComponent implements OnInit {
     this.taskService.getTasks(this.listId).subscribe(res => {
       this.tasks = res;
     }, () => {
-      this.snackBar.open('Get Tasks error', null, { duration: 2000, verticalPosition: 'top' });
+      this.snackBar.open('Get tasks error', null, { duration: 2000, verticalPosition: 'top' });
     });
   }
 
@@ -69,7 +76,6 @@ export class ListDetailComponent implements OnInit {
       if (item.id === taskId) {
         item.completed = !item.completed;
         this.taskService.updateTask(this.listId, taskId, item).subscribe(res => {
-          console.log('RESS', res);
         }, () => {
           this.snackBar.open('Update task error', null, { duration: 2000, verticalPosition: 'top' });
         });
@@ -98,9 +104,7 @@ export class ListDetailComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(data => {
       if (data) {
-        console.log('Dialog output:', data);
         this.taskService.updateTask(data.list_id, data.id, data).subscribe(res => {
-          console.log('RESS', res);
         }, () => {
           this.snackBar.open('Update task error', null, { duration: 2000, verticalPosition: 'top' });
         });

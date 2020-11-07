@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 import { RestService } from './rest.service';
-import { ITask } from '../modals/todo';
+import { ITask, IList } from '../modals/todo';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,17 @@ import { ITask } from '../modals/todo';
 export class TaskService {
 
   constructor(private restService: RestService) { }
+
+  getListDetail(listId: number): Observable<IList> {
+    return this.restService.get(environment.apiUrl + '/lists/' + listId)
+      .pipe(
+        map(d => {
+          if (d) {
+            return d as IList;
+          }
+          throwError('Error');
+        }));
+  }
 
   getTasks(listId: number): Observable<ITask[]> {
     return this.restService.get(environment.apiUrl + '/lists/' + listId + '/tasks')

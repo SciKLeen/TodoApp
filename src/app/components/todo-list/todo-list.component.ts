@@ -44,7 +44,7 @@ export class TodoListComponent implements OnInit {
       const index = this.lists.findIndex(obj => obj.id === id);
       this.lists.splice(index, 1);
     }, () => {
-      this.snackBar.open('deleteList Error', null, { duration: 2000, verticalPosition: 'top' });
+      this.snackBar.open('Delete list error', null, { duration: 2000, verticalPosition: 'top' });
     });
   }
 
