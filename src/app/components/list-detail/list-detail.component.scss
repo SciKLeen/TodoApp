@@ -2,15 +2,15 @@
   padding: 20px;
   display: flex;
 
+  .label {
+    font-size: 18px;
+    font-weight: 500;
+    font-weight: bold;
+  }
+
   .todo-input {
     padding: 20px;
     width: 30%;
-
-    .label {
-      font-size: 18px;
-      font-weight: 500;
-      font-weight: bold;
-    }
 
     .complete {
       text-decoration: line-through;
@@ -24,11 +24,6 @@
     button {
       border-radius: 27px;
     }
-
-    // .mat-fab {
-    //   background: #333333;
-    //   color: white;
-    // }
   }
 
   .task-list {
@@ -36,17 +31,20 @@
     width: 70%;
     border-left: groove;
     max-height: 75vh;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
-    // display: inline-block;
     display: flex;
-  flex-wrap: wrap;
-    mat-list-item {
-      // .task-item {
-        width: 45%;
-        margin: 0 21px;;
-      // }
+    flex-wrap: wrap;
+
+    .label {
+      width: 100%;
     }
+
+    mat-list-item {
+      width: 45%;
+      margin: 0 21px;;
+    }
+
     &::-webkit-scrollbar {
       width: 8px;
     }
@@ -87,6 +85,7 @@
           font-size: 13px;
         }
       }
+
       button {
         color: unset;
         background-color: #d2cccc59;

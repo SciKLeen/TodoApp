@@ -13,11 +13,14 @@ import { MatDialog, MatDialogConfig, MatSnackBar } from '@angular/material';
   styleUrls: ['./list-detail.component.scss']
 })
 export class ListDetailComponent implements OnInit {
+  listTaskLabel = "Edit List";
+  newTaskLabel = "Add new tasks";
   listId: number;
   listName = '';
   periousListName = '';
   newTask = '';
 
+  tasksTitle = "Tasks";
   tasks: ITask[] = [];
 
   constructor(
@@ -31,14 +34,13 @@ export class ListDetailComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.listId = +params.get('id');
-
       this.getTodoDetail();
       this.getTasks();
     });
   }
 
   getTodoDetail() {
-    this.taskService.getListDetail(this.listId).subscribe(res => {
+    this.taskService.getListDetail(this.listId).subscribe( res => {
       this.listName = res.name;
       this.periousListName = this.listName;
     }, () => {
@@ -47,7 +49,7 @@ export class ListDetailComponent implements OnInit {
   }
 
   getTasks() {
-    this.taskService.getTasks(this.listId).subscribe(res => {
+    this.taskService.getTasks(this.listId).subscribe( res => {
       this.tasks = res;
     }, () => {
       this.snackBar.open('Get tasks error', null, { duration: 2000, verticalPosition: 'top' });
@@ -55,7 +57,7 @@ export class ListDetailComponent implements OnInit {
   }
 
   editListName() {
-    this.todoListService.updateList(this.listId, this.listName).subscribe(res => {
+    this.todoListService.updateList(this.listId, this.listName).subscribe( () => {
       this.periousListName = this.listName;
     }, () => {
       this.snackBar.open('Update list task error', null, { duration: 2000, verticalPosition: 'top' });
@@ -63,7 +65,7 @@ export class ListDetailComponent implements OnInit {
   }
 
   addNewTask() {
-    this.taskService.createTask(this.listId, this.newTask).subscribe(res => {
+    this.taskService.createTask(this.listId, this.newTask).subscribe( res => {
       this.tasks.unshift(res);
       this.newTask = '';
     }, () => {
@@ -72,10 +74,10 @@ export class ListDetailComponent implements OnInit {
   }
 
   onCheckbox(taskId: number) {
-    this.tasks.map(item => {
-      if (item.id === taskId) {
+    this.tasks.map( item => {
+      if ( item.id === taskId ) {
         item.completed = !item.completed;
-        this.taskService.updateTask(this.listId, taskId, item).subscribe(res => {
+        this.taskService.updateTask(this.listId, taskId, item).subscribe( () => {
           this.getTasks();
         }, () => {
           this.snackBar.open('Update task error', null, { duration: 2000, verticalPosition: 'top' });
@@ -97,15 +99,15 @@ export class ListDetailComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-
     dialogConfig.data = {
       task
     };
     const dialogRef = this.dialog.open(EditTaskComponent, dialogConfig);
 
-    dialogRef.afterClosed().subscribe(data => {
+    dialogRef.afterClosed().subscribe( data => {
       if (data) {
-        this.taskService.updateTask(data.list_id, data.id, data).subscribe(res => {
+        this.taskService.updateTask(data.list_id, data.id, data).subscribe( () => {
+
         }, () => {
           this.snackBar.open('Update task error', null, { duration: 2000, verticalPosition: 'top' });
         });

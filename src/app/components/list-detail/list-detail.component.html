@@ -2,7 +2,7 @@
   <div class="todo-input">
     <div>
       <p class="label">
-        Edit List
+        {{ listTaskLabel }}
       </p>
       <mat-form-field class="input-task">
         <input matInput placeholder="Input List Name" [(ngModel)]="listName">
@@ -15,7 +15,7 @@
 
     <div>
       <p class="label">
-        Tasks
+        {{ newTaskLabel }}
       </p>
 
       <mat-form-field class="input-task">
@@ -30,6 +30,9 @@
   </div>
 
   <div class="task-list">
+    <p class="label">
+      {{tasksTitle}}
+    </p>
     <mat-list-item *ngFor="let task of tasks" [class.complete]="task?.completed">
       <mat-card class="task-item">
         <div>
