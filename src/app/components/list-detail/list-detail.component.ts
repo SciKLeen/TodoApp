@@ -76,6 +76,7 @@ export class ListDetailComponent implements OnInit {
       if (item.id === taskId) {
         item.completed = !item.completed;
         this.taskService.updateTask(this.listId, taskId, item).subscribe(res => {
+          this.getTasks();
         }, () => {
           this.snackBar.open('Update task error', null, { duration: 2000, verticalPosition: 'top' });
         });

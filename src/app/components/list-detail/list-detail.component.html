@@ -32,15 +32,26 @@
   <div class="task-list">
     <mat-list-item *ngFor="let task of tasks" [class.complete]="task?.completed">
       <mat-card class="task-item">
-        <mat-checkbox [checked]="task.completed" (change)="onCheckbox(task.id)">
-          {{ task?.name }}
-        </mat-checkbox>
+        <div>
+          <mat-checkbox [checked]="task.completed" (change)="onCheckbox(task.id)">
+            <div class="task-label">
+              {{ task?.name }}
+            </div>
+            <label class="time-label">
+              CreateAt: {{ task?.createdAt | date: 'short' }}
+            </label>
+            <br>
+            <label class="time-label">
+              CompletedAt: {{ task?.completedAt ? (task?.completedAt | date: 'short') : 'Now' }}
+            </label>
+          </mat-checkbox>
+        </div>
         <div>
           <button class="edit-button" (click)="editTask(task)">
             <mat-icon>edit</mat-icon>
           </button>
           <button class="delete-button" (click)="deleteTask(task.id)">
-            <mat-icon>close</mat-icon>
+            <mat-icon>delete</mat-icon>
           </button>
         </div>
       </mat-card>

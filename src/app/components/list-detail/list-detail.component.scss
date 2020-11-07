@@ -9,6 +9,7 @@
     .label {
       font-size: 18px;
       font-weight: 500;
+      font-weight: bold;
     }
 
     .complete {
@@ -24,11 +25,10 @@
       border-radius: 27px;
     }
 
-
-    .mat-fab {
-      background: #333333;
-      color: white;
-    }
+    // .mat-fab {
+    //   background: #333333;
+    //   color: white;
+    // }
   }
 
   .task-list {
@@ -38,7 +38,15 @@
     max-height: 75vh;
     overflow-y: scroll;
     overflow-x: hidden;
-
+    // display: inline-block;
+    display: flex;
+  flex-wrap: wrap;
+    mat-list-item {
+      // .task-item {
+        width: 45%;
+        margin: 0 21px;;
+      // }
+    }
     &::-webkit-scrollbar {
       width: 8px;
     }
@@ -61,13 +69,35 @@
       justify-content: space-between;
       display: flex;
 
-      .delete-button {
+      .mat-checkbox-inner-container {
+        margin: unset;
+        top: 3px;
+        margin-right: 15px;
+      }
+
+      mat-checkbox {
+        .task-label {
+          font-weight: bold;
+          word-wrap: break-word;
+          width: 100px;
+        }
+
+        .time-label {
+          font-style: italic;
+          font-size: 13px;
+        }
+      }
+      button {
+        color: unset;
+        background-color: #d2cccc59;
         margin-left: 5px;
       }
 
       .mat-checkbox-checked {
-        text-decoration-line: line-through;
-        font-style: italic;
+        .task-label {
+          text-decoration-line: line-through;
+          font-style: italic;
+        }
       }
     }
   }
