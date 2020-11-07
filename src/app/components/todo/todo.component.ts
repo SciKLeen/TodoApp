@@ -17,7 +17,7 @@ export class TodoComponent implements OnInit {
     private snackBar: MatSnackBar,
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   logOut() {
     this.authService.logout().subscribe(res => {
@@ -25,8 +25,8 @@ export class TodoComponent implements OnInit {
         localStorage.removeItem('apiKey');
         this.router.navigate(['/login']);
       }
-    }, error => {
-      this.snackBar.open('Logout error', null, { duration: 2000 });
+    }, () => {
+      this.snackBar.open('Logout error', null, { duration: 2000, verticalPosition: 'top' });
     });
   }
 

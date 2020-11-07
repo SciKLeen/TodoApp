@@ -26,7 +26,7 @@ export class TodoListComponent implements OnInit {
     this.todoListService.getLists().subscribe(res => {
       this.lists = res;
     }, () => {
-      this.snackBar.open('Get lists Error', null, { duration: 2000 });
+      this.snackBar.open('Get lists Error', null, { duration: 2000, verticalPosition: 'top' });
     });
   }
 
@@ -35,7 +35,7 @@ export class TodoListComponent implements OnInit {
       this.lists.unshift(res);
       this.newList = '';
     }, () => {
-      this.snackBar.open('Create list error', null, { duration: 2000 });
+      this.snackBar.open('Create list error', null, { duration: 2000, verticalPosition: 'top' });
     });
   }
 
@@ -44,7 +44,7 @@ export class TodoListComponent implements OnInit {
       const index = this.lists.findIndex(obj => obj.id === id);
       this.lists.splice(index, 1);
     }, () => {
-      this.snackBar.open('deleteList Error', null, { duration: 2000 });
+      this.snackBar.open('deleteList Error', null, { duration: 2000, verticalPosition: 'top' });
     });
   }
 

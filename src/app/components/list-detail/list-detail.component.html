@@ -32,7 +32,9 @@
   <div class="task-list">
     <mat-list-item *ngFor="let task of tasks" [class.complete]="task?.completed">
       <mat-card class="task-item">
-        <mat-checkbox [checked]="task.completed" (change)="onCheckbox(task.id)">{{ task?.name }}</mat-checkbox>
+        <mat-checkbox [checked]="task.completed" (change)="onCheckbox(task.id)">
+          {{ task?.name }}
+        </mat-checkbox>
         <div>
           <button class="edit-button" (click)="editTask(task)">
             <mat-icon>edit</mat-icon>

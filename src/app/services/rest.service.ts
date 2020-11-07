@@ -27,18 +27,18 @@ export class RestService {
     return this.http.post(url, params, this.httpOptions);
   }
 
-  put(url: string, params: any, options?: any) {
-    if (options) {
-      this.httpOptions.headers = options;
+  put(url: string, params: any, headerCustom?: HttpHeaders) {
+    if (headerCustom) {
+      this.httpOptions.headers = headerCustom;
     } else {
       this.makeHeaderRequest();
     }
     return this.http.put(url, params, this.httpOptions);
   }
 
-  delete(url: string, options?: any) {
-    if (options) {
-      this.httpOptions.headers = options;
+  delete(url: string, headerCustom?: HttpHeaders) {
+    if (headerCustom) {
+      this.httpOptions.headers = headerCustom;
     } else {
       this.makeHeaderRequest();
     }

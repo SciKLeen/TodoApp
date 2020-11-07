@@ -43,7 +43,7 @@ export class ListDetailComponent implements OnInit {
     this.taskService.getTasks(this.listId).subscribe(res => {
       this.tasks = res;
     }, () => {
-      this.snackBar.open('Get Tasks error', null, { duration: 2000 });
+      this.snackBar.open('Get Tasks error', null, { duration: 2000, verticalPosition: 'top' });
     });
   }
 
@@ -51,7 +51,7 @@ export class ListDetailComponent implements OnInit {
     this.todoListService.updateList(this.listId, this.listName).subscribe(res => {
       this.periousListName = this.listName;
     }, () => {
-      this.snackBar.open('Update list task error', null, { duration: 2000 });
+      this.snackBar.open('Update list task error', null, { duration: 2000, verticalPosition: 'top' });
     });
   }
 
@@ -60,7 +60,7 @@ export class ListDetailComponent implements OnInit {
       this.tasks.unshift(res);
       this.newTask = '';
     }, () => {
-      this.snackBar.open('Create task error', null, { duration: 2000 });
+      this.snackBar.open('Create task error', null, { duration: 2000, verticalPosition: 'top' });
     });
   }
 
@@ -71,7 +71,7 @@ export class ListDetailComponent implements OnInit {
         this.taskService.updateTask(this.listId, taskId, item).subscribe(res => {
           console.log('RESS', res);
         }, () => {
-          this.snackBar.open('Update task error', null, { duration: 2000 });
+          this.snackBar.open('Update task error', null, { duration: 2000, verticalPosition: 'top' });
         });
       }
     });
@@ -82,7 +82,7 @@ export class ListDetailComponent implements OnInit {
       const index = this.tasks.findIndex(obj => obj.id === id);
       this.tasks.splice(index, 1);
     }, () => {
-      this.snackBar.open('Delete task error', null, { duration: 2000 });
+      this.snackBar.open('Delete task error', null, { duration: 2000, verticalPosition: 'top' });
     });
   }
 
@@ -102,7 +102,7 @@ export class ListDetailComponent implements OnInit {
         this.taskService.updateTask(data.list_id, data.id, data).subscribe(res => {
           console.log('RESS', res);
         }, () => {
-          this.snackBar.open('Update task error', null, { duration: 2000 });
+          this.snackBar.open('Update task error', null, { duration: 2000, verticalPosition: 'top' });
         });
       }
     });
