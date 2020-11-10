@@ -42,7 +42,8 @@
 
     mat-list-item {
       width: 45%;
-      margin: 0 21px;;
+      margin: 0 21px;
+      ;
     }
 
     &::-webkit-scrollbar {
@@ -97,6 +98,33 @@
           text-decoration-line: line-through;
           font-style: italic;
         }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1352px) {
+    .task-list {
+      width: 100%;
+      background-color: lightblue;
+
+      mat-list-item {
+        width: 100%;
+        margin: 0 21px;
+      }
+    }
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+  #list-detail {
+    display: inline;
+
+    .todo-input {
+      width: 100%;
+
+      mat-form-field {
+        width: 70vh;
       }
     }
   }
