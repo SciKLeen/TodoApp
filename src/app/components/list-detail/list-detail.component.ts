@@ -13,14 +13,14 @@ import { MatDialog, MatDialogConfig, MatSnackBar } from '@angular/material';
   styleUrls: ['./list-detail.component.scss']
 })
 export class ListDetailComponent implements OnInit {
-  listTaskLabel = "Edit List";
-  newTaskLabel = "Add new tasks";
+  listTaskLabel = 'Edit List';
+  newTaskLabel = 'Add new tasks';
   listId: number;
   listName = '';
   periousListName = '';
   newTask = '';
 
-  tasksTitle = "Tasks";
+  tasksTitle = 'Tasks';
   tasks: ITask[] = [];
 
   constructor(
@@ -74,7 +74,7 @@ export class ListDetailComponent implements OnInit {
   }
 
   onCheckbox(taskId: number) {
-    this.tasks.map( item => {
+    this.tasks.forEach( item => {
       if ( item.id === taskId ) {
         item.completed = !item.completed;
         this.taskService.updateTask(this.listId, taskId, item).subscribe( () => {
