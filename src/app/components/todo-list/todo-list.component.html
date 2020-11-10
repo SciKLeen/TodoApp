@@ -13,14 +13,14 @@
       Add
     </button>
   </div>
-
 </div>
 
 <div class="todo-list-container">
   <div *ngFor="let list of lists" class="container-item">
     <a class="todo-link" [routerLink]="['/todo-list', list.id]">
       <mat-card class="todo-card">
-        <mat-card-title>{{list.name}}</mat-card-title>
+        <mat-icon class="card-icon" mat-card-avatar>list</mat-icon>
+        <mat-card-title> {{list.name}} </mat-card-title>
         <mat-card-content>{{list.tasks}} tasks</mat-card-content>
       </mat-card>
     </a>
