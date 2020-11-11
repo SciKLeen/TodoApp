@@ -59,8 +59,9 @@ export class ListDetailComponent implements OnInit {
   editListName() {
     this.todoListService.updateList(this.listId, this.listName).subscribe( () => {
       this.periousListName = this.listName;
+      this.snackBar.open('Update list name success', null, { duration: 2000, verticalPosition: 'top' });
     }, () => {
-      this.snackBar.open('Update list task error', null, { duration: 2000, verticalPosition: 'top' });
+      this.snackBar.open('Update list name error', null, { duration: 2000, verticalPosition: 'top' });
     });
   }
 
