@@ -6,7 +6,7 @@ export interface IList {
 
 export interface ITask {
   id: number;
-  listId: number;
+  list_id: number;
   name: string;
   completed: boolean;
   createdAt: string;

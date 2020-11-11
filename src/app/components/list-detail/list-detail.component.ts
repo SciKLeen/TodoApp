@@ -89,7 +89,7 @@ export class ListDetailComponent implements OnInit {
   deleteTask(id: number) {
     this.taskService.deleteTask(this.listId, id).subscribe( () => {
       const index = this.tasks.findIndex(obj => obj.id === id);
-      this.tasks.splice(index, 1);
+      this.getTasks();
     }, () => {
       this.snackBar.open('Delete task error', null, { duration: 2000, verticalPosition: 'top' });
     });

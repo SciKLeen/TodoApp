@@ -55,7 +55,7 @@ export class TaskService {
     const params = {
       name: task.name,
       completed: task.completed,
-      listId: task.listId
+      listId: task.list_id
     };
     return this.restService.put(environment.apiUrl + '/lists/' + listId + '/tasks/' + taskId, params)
       .pipe(
